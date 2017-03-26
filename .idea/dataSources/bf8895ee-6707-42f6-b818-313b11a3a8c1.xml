@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Contracts@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="Contracts">
+      <ObjectId>16393</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-03-21.14:39:07.402</IntrospectionTimestamp>
+      <IntrospectionStateNumber>972</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="Clients_id_seq">
+      <ObjectId>16448</ObjectId>
+      <StateNumber>563</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="10" parent="3" name="Users_id_seq">
+      <ObjectId>16609</ObjectId>
+      <StateNumber>969</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="companies_id_seq">
+      <ObjectId>16573</ObjectId>
+      <StateNumber>892</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="12" parent="3" name="contracts_id_seq">
+      <ObjectId>16562</ObjectId>
+      <StateNumber>891</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="13" parent="3" name="clients">
+      <ObjectId>16450</ObjectId>
+      <StateNumber>902</StateNumber>
+    </table>
+    <table id="14" parent="3" name="companies">
+      <ObjectId>16575</ObjectId>
+      <StateNumber>902</StateNumber>
+    </table>
+    <table id="15" parent="3" name="contracts">
+      <ObjectId>16564</ObjectId>
+      <StateNumber>943</StateNumber>
+    </table>
+    <table id="16" parent="3" name="users">
+      <ObjectId>16611</ObjectId>
+      <StateNumber>972</StateNumber>
+    </table>
+    <routine id="17" parent="3" name="timestamp">
+      <ObjectId>16603</ObjectId>
+      <StateNumber>913</StateNumber>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <column id="18" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>563</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;Clients_id_seq&quot;&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="19" parent="13" name="name">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <StateNumber>564</StateNumber>
+    </column>
+    <column id="20" parent="13" name="address">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+      <StateNumber>564</StateNumber>
+    </column>
+    <index id="21" parent="13" name="Clients_pkey">
+      <ObjectId>16454</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="22" parent="13" name="client_name">
+      <ObjectId>16456</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="13" name="Clients_pkey">
+      <ObjectId>16455</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>Clients_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="24" parent="13" name="client_name">
+      <ObjectId>16457</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>client_name</UnderlyingIndexName>
+    </key>
+    <column id="25" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>892</StateNumber>
+      <DefaultExpression>nextval(&apos;companies_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="26" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <StateNumber>892</StateNumber>
+    </column>
+    <index id="27" parent="14" name="companies_pkey">
+      <ObjectId>16579</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="28" parent="14" name="companies_name_key">
+      <ObjectId>16581</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="14" name="companies_pkey">
+      <ObjectId>16580</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>companies_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="30" parent="14" name="companies_name_key">
+      <ObjectId>16582</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>companies_name_key</UnderlyingIndexName>
+    </key>
+    <column id="31" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>891</StateNumber>
+      <DefaultExpression>nextval(&apos;contracts_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="32" parent="15" name="company_name">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>902</StateNumber>
+    </column>
+    <column id="33" parent="15" name="client_name">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>902</StateNumber>
+    </column>
+    <column id="34" parent="15" name="file_name">
+      <Position>4</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>902</StateNumber>
+    </column>
+    <column id="35" parent="15" name="date">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>891</StateNumber>
+    </column>
+    <column id="36" parent="15" name="subject">
+      <Position>6</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>935</StateNumber>
+    </column>
+    <column id="37" parent="15" name="status">
+      <Position>7</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>954</StateNumber>
+    </column>
+    <index id="38" parent="15" name="contracts_pkey">
+      <ObjectId>16571</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="39" parent="15" name="contracts_file_name_id_key">
+      <ObjectId>16607</ObjectId>
+      <ColNames>file_name
+id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="15" name="contracts_pkey">
+      <ObjectId>16572</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>contracts_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="41" parent="15" name="contracts_file_name_id_key">
+      <ObjectId>16608</ObjectId>
+      <ColNames>file_name
+id</ColNames>
+      <UnderlyingIndexName>contracts_file_name_id_key</UnderlyingIndexName>
+    </key>
+    <foreign-key id="42" parent="15" name="contracts_company_name_fkey">
+      <ObjectId>16598</ObjectId>
+      <ColNames>company_name</ColNames>
+      <RefTableName>companies</RefTableName>
+      <RefKeyName>companies_name_key</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <foreign-key id="43" parent="15" name="contracts_client_name_fkey">
+      <ObjectId>16593</ObjectId>
+      <ColNames>client_name</ColNames>
+      <RefTableName>clients</RefTableName>
+      <RefKeyName>client_name</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <trigger id="44" parent="15" name="autotimestamp">
+      <ObjectId>16604</ObjectId>
+      <StateNumber>914</StateNumber>
+      <Turn>before-row</Turn>
+      <Events>ID</Events>
+      <FireMode>origin</FireMode>
+    </trigger>
+    <column id="45" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>969</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;Users_id_seq&quot;&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="46" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>969</StateNumber>
+    </column>
+    <column id="47" parent="16" name="surname">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>970</StateNumber>
+    </column>
+    <column id="48" parent="16" name="email">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>970</StateNumber>
+    </column>
+    <column id="49" parent="16" name="password">
+      <Position>7</Position>
+      <DataType>varchar(40)|0</DataType>
+      <StateNumber>971</StateNumber>
+    </column>
+    <index id="50" parent="16" name="Users_pkey">
+      <ObjectId>16615</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="16" name="Users_pkey">
+      <ObjectId>16616</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>Users_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <argument id="52" parent="17">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0</DataType>
+    </argument>
+  </database-model>
+</dataSource>
