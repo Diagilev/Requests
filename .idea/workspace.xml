@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41aef774-a1c3-4672-ab91-ebc15a008c8b" name="Default" comment="adding page navigation to contracts(dynamic query)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="41aef774-a1c3-4672-ab91-ebc15a008c8b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/com/regcontract/DB/ContractDAOImp.class" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/com/regcontract/DB/ContractDAOImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/com/regcontract/Servlets/Registration.class" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/com/regcontract/Servlets/Registration.class" />
@@ -11,11 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/regcontract/Servlets/Registration.class" afterPath="$PROJECT_DIR$/target/classes/com/regcontract/Servlets/Registration.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/regcontract/Servlets/ViewData.class" afterPath="$PROJECT_DIR$/target/classes/com/regcontract/Servlets/ViewData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/regcontract/DB/ContractDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/com/regcontract/DB/ContractDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/regcontract/Servlets/Registration.java" afterPath="$PROJECT_DIR$/src/main/java/com/regcontract/Servlets/Registration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/regcontract/Servlets/ViewData.java" afterPath="$PROJECT_DIR$/src/main/java/com/regcontract/Servlets/ViewData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/includes/contracts_form.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/includes/contracts_form.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/style.css" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/WEB-INF/classes/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/css/style.css" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/includes/contracts_form.jsp" afterPath="$PROJECT_DIR$/target/RegContract-1.0-SNAPSHOT/includes/contracts_form.jsp" />
@@ -1224,12 +1218,20 @@
       <workItem from="1490552117803" duration="57000" />
       <workItem from="1490552831456" duration="4557000" />
       <workItem from="1490621709067" duration="602000" />
-      <workItem from="1490629252806" duration="1442000" />
+      <workItem from="1490629252806" duration="1455000" />
     </task>
+    <task id="LOCAL-00001" summary="adding page navigation to contracts(dynamic query)">
+      <created>1490630701627</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1490630701627</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394322000" />
+    <option name="totallyTimeSpent" value="394335000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
