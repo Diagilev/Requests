@@ -90,13 +90,19 @@
     <fieldset>
         <legend>Зарегистрированные договора</legend>
         <form id="criteria" name="criteria">
-            <input id="ViewData" name="ViewData" type="Button" value="Получить список договоров">
+            <button id="ViewData" name="ViewData" type="Button">Получить список договоров</button>
             <input id="criteriaSubject" name="criteriaSubject" type="text" placeholder="Предмет договора">
             <input id="criteriaName" name="criteriaName" type="text" placeholder="Вторая сторона договора">
-            Сортировка по дате:
+            <span>Сортировка по дате:</span>
             <select name="criteriaDate">
                 <option selected value="desc">От новых к старым</option>
                 <option value="asc">От старых к новым</option>
+            </select>
+            <span>Записей на странице:</span>
+            <select name="criteriaLimit">
+                <option value="10">10</option>
+                <option selected value="50">50</option>
+                <option value="100">100</option>
             </select>
         </form>
         <br>

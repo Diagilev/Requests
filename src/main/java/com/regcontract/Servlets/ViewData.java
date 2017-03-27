@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet("/View")
 public class ViewData extends HttpServlet {
-
+    public static int pages;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -62,6 +62,9 @@ public class ViewData extends HttpServlet {
                 html.append("</tr>\n");
             }
             html.append("</table>");
+            html.append("<a href=");
+
+
             }
             else html.append("База пуста/Совпадений не найдено");
             resp.setContentType("text/html; charset=UTF-8");

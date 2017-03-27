@@ -2,11 +2,14 @@ package com.regcontract.DB;
 
 import com.regcontract.Model.Clients;
 import com.regcontract.Model.Contract;
+import com.regcontract.Servlets.ViewData;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by kabanaus on 19.02.2017.
@@ -17,6 +20,7 @@ public class ContractDAOImp implements ContractDAO {
     private static final String SQL_SELECT_ALL = "SELECT * FROM contracts";
     private static final String SQL_CLIENTS = "SELECT name FROM clients WHERE name ILIKE ?";
     private static String SQL_DYNAMIC_SELECT;
+    private static String SQL_COUNT_ROWS = "SELECT COUNT(*) AS COUNT FROM contracts";
 
     public ContractDAOImp() throws Exception {
         conn = DBUtil.getConnection();
@@ -55,48 +59,65 @@ public class ContractDAOImp implements ContractDAO {
     }
 
     public List<Contract> getContracts(HttpServletRequest req) throws SQLException {
-        SQL_DYNAMIC_SELECT = null;
-        SQL_DYNAMIC_SELECT = SQL_SELECT_ALL;
+        SQL_DYNAMIC_SELECT = "";
         String criteriaName = req.getParameter("criteriaName");
         String criteriaDate = req.getParameter("criteriaDate");
         String criteriaSubject = req.getParameter("criteriaSubject");
+        int criteriaPage = parseInt(req.getParameter("criteriaPage"));
+        int criteriaLimit = parseInt(req.getParameter("criteriaLimit"));
+        int criteriaOffset = 0;
+        int countrows = 0;
+
         PreparedStatement ps = null;
         Statement st = conn.createStatement();
         ResultSet rs;
+        ResultSet rsCount; //Выборка с количеством записей
         List<Contract> contractList = new ArrayList<Contract>();
+        //Динамическое формирование cтроки запроса
         boolean res = false;
         if (!criteriaName.equals("")) {
             SQL_DYNAMIC_SELECT += " WHERE client_name ILIKE \'%" + criteriaName + "%\'";
             res = true;
         }
-        if (!criteriaSubject.equals("") && res == true){
+        if (!criteriaSubject.equals("") && res == true) {
             SQL_DYNAMIC_SELECT += " AND subject ILIKE \'%" + criteriaSubject + "%\'";
-        }
-        else if (!criteriaSubject.equals("") && res == false){
+        } else if (!criteriaSubject.equals("") && res == false) {
             SQL_DYNAMIC_SELECT += " WHERE subject ILIKE \'%" + criteriaSubject + "%\'";
         }
+        //
 
-            if (criteriaDate.equals("asc")) {
-                SQL_DYNAMIC_SELECT += " ORDER BY date asc";
-            }
-            if (criteriaDate.equals("desc")) {
-                SQL_DYNAMIC_SELECT += " ORDER BY date desc";
-            }
+        //Получение количества записей
+        rsCount = st.executeQuery(SQL_COUNT_ROWS + SQL_DYNAMIC_SELECT);
+        rsCount.next();
+        countrows = rsCount.getInt("COUNT");
+        ViewData.pages = (countrows - 1) / criteriaLimit + 1;
+        //
+        //Сортировка
+        if (criteriaDate.equals("asc")) {
+            SQL_DYNAMIC_SELECT += " ORDER BY date asc";
+        }
+        if (criteriaDate.equals("desc")) {
+            SQL_DYNAMIC_SELECT += " ORDER BY date desc";
+        }
+        //
+        //Огриничение количества записей на странице, расчет страниц
+        criteriaOffset = criteriaPage * criteriaLimit;
+        SQL_DYNAMIC_SELECT += " LIMIT " + criteriaLimit + " OFFSET" + criteriaOffset;
+        //
 
-            st = conn.createStatement();
-            rs = st.executeQuery(SQL_DYNAMIC_SELECT);
-            while (rs.next()){
-                Contract contract = new Contract();
-                contract.setId(rs.getString("id"));
-                contract.setCompanyName(rs.getString("company_name"));
-                contract.setSubject(rs.getString("subject"));
-                contract.setStatus(rs.getString("status"));
-                contract.setClientName(rs.getString("client_name"));
-                contract.setFileName(rs.getString("file_name"));
-                contract.setDate(rs.getString("date"));
-                contractList.add(contract);
-            }
-
+        st = conn.createStatement();
+        rs = st.executeQuery(SQL_SELECT_ALL + SQL_DYNAMIC_SELECT);
+        while (rs.next()) {
+            Contract contract = new Contract();
+            contract.setId(rs.getString("id"));
+            contract.setCompanyName(rs.getString("company_name"));
+            contract.setSubject(rs.getString("subject"));
+            contract.setStatus(rs.getString("status"));
+            contract.setClientName(rs.getString("client_name"));
+            contract.setFileName(rs.getString("file_name"));
+            contract.setDate(rs.getString("date"));
+            contractList.add(contract);
+        }
         return contractList;
     }
 
@@ -104,7 +125,7 @@ public class ContractDAOImp implements ContractDAO {
         String term = req.getParameter("term");
         PreparedStatement ps = null;
         ps = conn.prepareStatement(SQL_CLIENTS);
-        ps.setString(1, "%"+term+"%");
+        ps.setString(1, "%" + term + "%");
         ResultSet rs = ps.executeQuery();
         List<Clients> clientsList = new ArrayList<Clients>();
         while (rs.next()) {

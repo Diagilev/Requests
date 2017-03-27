@@ -88,6 +88,14 @@ body {
 	border-collapse: collapse;
 }
 
+.contractView span{
+	font-size: small;
+}
+
+.contractView input{
+	width: 160px;
+}
+
 #title{
     text-align: center;
     background-color: #c9c9c9;
@@ -145,6 +153,6 @@ td {
 #user_reg_btn {
 margin-left: 40%;
 }
- span{
+ .contractAdd span{
 	color: red;
 }
