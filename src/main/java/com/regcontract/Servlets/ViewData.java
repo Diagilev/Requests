@@ -20,15 +20,10 @@ import java.util.List;
 @WebServlet("/View")
 public class ViewData extends HttpServlet {
     public static int pages;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.setContentType("text/html");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException{
         ContractDAO dao = null;
         try {
             dao = new ContractDAOImp();
@@ -38,42 +33,37 @@ public class ViewData extends HttpServlet {
         StringBuilder html = new StringBuilder();
         try {
             List<Contract> contractList = dao.getContracts(req);
-            if(!contractList.isEmpty()){
-            html.append("<table cellspacing=\"0\">\n");
-            html.append("<tr id=\"title\">\n");
-            html.append("<td id=\"t_contractId\" class=\"t_contractId\">№ договора</td>\n");
-            html.append("<td id=\"t_company\" class=\"t_company\">Предприятие</td>\n");
-            html.append("<td id=\"t_subject\" class=\"t_subject\">Предмет договора</td>\n");
-            html.append("<td id=\"t_status\" class=\"t_status\">Статус</td>\n");
-            html.append("<td id=\"t_client\" class=\"t_client\">Вторая сторона договора</td>\n");
-            html.append("<td id=\"t_document\" class=\"t_document\">Файл</td>\n");
-            html.append("<td id=\"t_date\" class=\"t_date\">Дата добавления</td>\n");
-            html.append("</tr>\n");
-            for(int i=0; i<contractList.size(); i++ ) {
-                Contract c = contractList.get(i);
-                html.append("<tr>\n");
-                html.append("<td id=\"t_contractId\" class=\"t_contractId\">"+c.getId()+"</td>\n");
-                html.append("<td class=\"t_company\">" + c.getCompanyName() +"</td>\n");
-                html.append("<td class=\"t_subject\">" + c.getSubject() +"</td>\n");
-                html.append("<td class=\"t_subject\">" + c.getStatus() +"</td>\n");
-                html.append("<td class=\"t_client\">" + c.getClientName() +"</td>\n");
-                html.append("<td class=\"t_document\"><a href=\"uploads/"+c.getFileName()+"\"><img src=\"img/imgres.png\" width=\"12\"</a></td>\n");
-                html.append("<td class=\"t_date\">" + c.getDate().substring(0, c.getDate().indexOf(".")) +"</td>\n");
+            if (!contractList.isEmpty()) {
+                html.append("<table cellspacing=\"0\">\n");
+                html.append("<tr id=\"title\">\n");
+                html.append("<td id=\"t_contractId\" class=\"t_contractId\">№</td>\n");
+                html.append("<td id=\"t_company\" class=\"t_company\">Предприятие</td>\n");
+                html.append("<td id=\"t_subject\" class=\"t_subject\">Предмет договора</td>\n");
+                html.append("<td id=\"t_status\" class=\"t_status\">Статус</td>\n");
+                html.append("<td id=\"t_client\" class=\"t_client\">Вторая сторона договора</td>\n");
+                html.append("<td id=\"t_document\" class=\"t_document\">Файл</td>\n");
+                html.append("<td id=\"t_date\" class=\"t_date\">Дата добавления</td>\n");
                 html.append("</tr>\n");
-            }
-            html.append("</table>");
-            html.append("<a href=");
-
-
-            }
-            else html.append("База пуста/Совпадений не найдено");
+                for (int i = 0; i < contractList.size(); i++) {
+                    Contract c = contractList.get(i);
+                    html.append("<tr>\n");
+                    html.append("<td id=\"t_contractId\" class=\"t_contractId\">" + c.getId() + "</td>\n");
+                    html.append("<td class=\"t_company\">" + c.getCompanyName() + "</td>\n");
+                    html.append("<td class=\"t_subject\">" + c.getSubject() + "</td>\n");
+                    html.append("<td class=\"t_subject\">" + c.getStatus() + "</td>\n");
+                    html.append("<td class=\"t_client\">" + c.getClientName() + "</td>\n");
+                    html.append("<td class=\"t_document\"><a href=\"uploads/" + c.getFileName() + "\"><img src=\"img/imgres.png\" width=\"12\"</a></td>\n");
+                    html.append("<td class=\"t_date\">" + c.getDate().substring(0, c.getDate().indexOf(".")) + "</td>\n");
+                    html.append("</tr>\n");
+                }
+                html.append("</table>");
+                for (int i = 1; i<=pages; i++)
+                html.append("<button class=\"pageNum\" value=\""+i+"\">"+i+"</button>");
+            } else html.append("База пуста/Совпадений не найдено");
             resp.setContentType("text/html; charset=UTF-8");
             resp.getWriter().write(html.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        }
     }
-
-
-
+}

@@ -1,4 +1,5 @@
 //Добавление в базу
+
 $(document).ready(function () {
     $('#btn').click(function () {
         var data = $('#addContract').serializeArray();
@@ -30,19 +31,24 @@ $(document).ready(function () {
     $('#clientName').keyup(getClientName('#clientName'));
     $('#criteriaName').keyup(getClientName('#criteriaName'));
     //Получение из базы всех значений
-    $('#ViewData').click(function () {
-        var data = $('#criteria').serialize();
+     function viewContracts (page){
+        var data = $('#criteria').serializeArray();
+        data.push({name: 'criteriaPage',  value: page});
         $.ajax({
             data: data,
-            type: 'POST',
+            type: 'GET',
             url: 'View',
             dataType: 'html',
             success: function(resp){
                 $('#result').html(resp);
+                $('.pageNum').on('click',  function(){viewContracts(this.value)});
+                $('.criteries').on('change',  function(){viewContracts()});
             }
         });
-    });
+    };
+    viewContracts ();
 });
+
 
 function getClientName(id) {
     $(id).autocomplete({

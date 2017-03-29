@@ -63,10 +63,14 @@ public class ContractDAOImp implements ContractDAO {
         String criteriaName = req.getParameter("criteriaName");
         String criteriaDate = req.getParameter("criteriaDate");
         String criteriaSubject = req.getParameter("criteriaSubject");
-        int criteriaPage = parseInt(req.getParameter("criteriaPage"));
-        int criteriaLimit = parseInt(req.getParameter("criteriaLimit"));
         int criteriaOffset = 0;
         int countrows = 0;
+        int criteriaPage;
+        if (req.getParameter("criteriaPage").equals(""))
+            criteriaPage = 1;
+        else criteriaPage = parseInt(req.getParameter("criteriaPage"));
+        int criteriaLimit = parseInt(req.getParameter("criteriaLimit"));
+
 
         PreparedStatement ps = null;
         Statement st = conn.createStatement();
@@ -101,8 +105,8 @@ public class ContractDAOImp implements ContractDAO {
         }
         //
         //Огриничение количества записей на странице, расчет страниц
-        criteriaOffset = criteriaPage * criteriaLimit;
-        SQL_DYNAMIC_SELECT += " LIMIT " + criteriaLimit + " OFFSET" + criteriaOffset;
+        criteriaOffset = criteriaPage * criteriaLimit - criteriaLimit;
+        SQL_DYNAMIC_SELECT += " LIMIT " + criteriaLimit + " OFFSET " + criteriaOffset;
         //
 
         st = conn.createStatement();

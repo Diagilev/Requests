@@ -3,100 +3,98 @@
 
 body {
     left: 235px;
-	margin: 0;
+    margin: 0;
     font-family: sans-serif;
     overflow: hidden;
     position: relative;
-	}
-
-
-.sidebar input {
-	margin-top: 5px;
 }
 
+.sidebar input {
+    margin-top: 5px;
+}
 
 .addClients {
-	top: 10%;
-	left:50%;
-	display: none;
-	position: fixed;
-	z-index: 10;
-	background-color: #e2e2e2;
-	width: 25%;
-	hight: 15%
+    top: 10%;
+    left: 50%;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    background-color: #e2e2e2;
+    width: 25%;
+    hight: 15%
 }
 
 .container {
-	display:block;
-	}
-	
+    display: block;
+}
+
 .sidebar a, .sidebar p {
-	color: #FFFFFF;
+    color: #FFFFFF;
     text-decoration: none;
     font-size: smaller;
     padding-left: 20px;
-	}
-	
+}
+
 .sidebar {
 
-	display: inline;
+    display: inline;
     line-height: 50%;
-	background-color: #00334D;
+    background-color: #00334D;
     position: fixed;
-	left: 0px;
-	float:left;
-	width: 225px;
-	height: 100vh;
-	text-align:left;
-	padding-left: 10px;
-	//-webkit-transition:  left 0.4s ease-in-out;
-   // -moz-transition:  left 0.4s ease-in-out;
-   // -ms-transition:  left 0.4s ease-in-out;
-   // -o-transition:  left 0.4s ease-in-out;
-   // transition:  left 0.4s ease-in-out;
-	}
-	
-	.sidebar.close-sidebar {
+    left: 0px;
+    float: left;
+    width: 225px;
+    height: 100vh;
+    text-align: left;
+    padding-left: 10px;
+/ / -webkit-transition: left 0.4 s ease-in-out;
+/ / -moz-transition: left 0.4 s ease-in-out;
+/ / -ms-transition: left 0.4 s ease-in-out;
+/ / -o-transition: left 0.4 s ease-in-out;
+/ / transition: left 0.4 s ease-in-out;
+}
+
+.sidebar.close-sidebar {
     left: -100px;
-	}
- 	
+}
+
 .main {
-	display: inline;
-	background-color: #FFFFFF;
-	float: left;
-	width: 80%;
-	position: relative;
-	}
-	
+    display: inline;
+    background-color: #FFFFFF;
+    float: left;
+    width: 80%;
+    position: relative;
+}
+
 .content {
-	width: 100%;
-	display:block;
-	border: none;
-/*	border-style: solid;
-	border-width: 1px;*/
-	padding-left: 10px;
-	padding-bottom: 20px;
-	margin: 10px 20px 20px 0px;
+    width: 100%;
+    display: block;
+    border: none;
+    /*	border-style: solid;
+        border-width: 1px;*/
+    padding-left: 10px;
+    padding-bottom: 20px;
+    margin: 10px 20px 20px 0px;
 
-	}
-
-.contractView table  {
-	width: 100%;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #6e6e6e;
-	border-collapse: collapse;
 }
 
-.contractView span{
-	font-size: small;
+.contractView table {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6e6e6e;
+    border-collapse: collapse;
 }
 
-.contractView input{
-	width: 160px;
+.contractView span {
+    font-size: small;
 }
 
-#title{
+.contractView input {
+    width: 160px;
+}
+
+#title {
     text-align: center;
     background-color: #c9c9c9;
 }
@@ -107,52 +105,62 @@ body {
     border-width: 1px;
     border-color: #6e6e6e;
 }
+
 .t_contractId {
-	text-align: center;
+    text-align: center;
 }
 
-.t_document  {
-     text-align: center;
-	 width: 5%;
+.t_document {
+    text-align: center;
+    width: 5%;
 
- }
- .t_date{
-     text-align: center;
-	 width: 15%;
- }
-
-.t_contractId{
-	text-align: center;
-	width: 5%;
 }
 
+.t_date {
+    text-align: center;
+    width: 15%;
+}
 
+.t_contractId {
+    text-align: center;
+    width: 5%;
+}
 
- .footer {
-	 font-size: small;
-	 text-align: right;
-	 position: fixed;
-	 right: 25px;
-	 float: right;
-	 bottom: 0;
-	 width: 100%;
- }
+.footer {
+    font-size: small;
+    text-align: right;
+    position: fixed;
+    right: 25px;
+    float: right;
+    bottom: 0;
+    width: 100%;
+}
 
 td {
-	font-size: small;
+    font-size: small;
 }
 
 .contractAdd input {
-	width: 220px;
+    width: 220px;
 }
 
 #companyName {
-	width: 224px;
+    width: 224px;
 }
 
 #user_reg_btn {
-margin-left: 40%;
+    margin-left: 40%;
 }
- .contractAdd span{
-	color: red;
+
+.contractAdd span {
+    color: red;
+}
+
+.pageNum {
+    margin: 20px 5px 5px 0px;
+    font-size: small;
+}
+
+#result {
+    text-align: center;
 }

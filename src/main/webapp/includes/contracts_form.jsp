@@ -94,12 +94,12 @@
             <input id="criteriaSubject" name="criteriaSubject" type="text" placeholder="Предмет договора">
             <input id="criteriaName" name="criteriaName" type="text" placeholder="Вторая сторона договора">
             <span>Сортировка по дате:</span>
-            <select name="criteriaDate">
+            <select class="criteries" name="criteriaDate">
                 <option selected value="desc">От новых к старым</option>
                 <option value="asc">От старых к новым</option>
             </select>
             <span>Записей на странице:</span>
-            <select name="criteriaLimit">
+            <select class="criteries" name="criteriaLimit">
                 <option value="10">10</option>
                 <option selected value="50">50</option>
                 <option value="100">100</option>
